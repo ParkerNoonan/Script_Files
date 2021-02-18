@@ -1,0 +1,31 @@
+How to use this script.
+1. Create a "temp_files" folder on your desktop.
+2. Copy the Job_Book.py file into that folder.
+3. Place files into "temp_files" folder and rename them by adding a letter and number. The first
+letter of the file name corresponds to a job book folder. For instance, if the file starts with an
+"A", the file corresponds to either a scope related document or a safety related document. The second character
+will tell you which subfolder, "1", "2", "3", etc. For instance to place a scope document in the correct
+folder, folder "A100-A200_Scope and Schedules" you simply need to add an "A1" to the start of the file name.
+
+What the program does:
+When you run the program, python will go to the "Working" directory that you specify.
+It will then create a "job_book" folder in according with a list that is written in the code.
+The program will then jump up a directory and then back down, using relative paths, into the
+"temp_folder".
+The program will return an iterator of os.DirEntry object using os.scandir of all the files in the folder.
+A for loop is then used to go over the iterator and read the first two characters of the filenames.
+If the first two characters correspond to one the the 14 possible folders, the file is copied into that folder.
+If the first two characters DO NOT correspond to on the 14 folders, a message in the terminal window informs the user to check the files name.
+
+Why I created this program:
+Part of my job is to review the normally 100 to 300 files, or more, generated during natural gas pipeline projects.
+I then have to sort this documents into the appropriate folders.
+Dragging and dropping documents takes longer than expected and is prone to operator error with people
+that do not pay attention to where there drag and drop the documents.
+In the program, the user will simply have to identify the type of document and change two characters at the beginning of the file name.
+The program does the rest of copying and pasting the files into the correct folder instead of paying a person to do it.
+
+Ways that the program could be improved:
+1. Instead of simply printing a console message to review which files weren't copy, the program appends"failed to copy" at the end of the file name.
+2. After successfully copying the file into the job book folder, the program could go back into the temp folder and delete the copied file.
+ 
